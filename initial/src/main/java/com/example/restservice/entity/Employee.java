@@ -1,7 +1,5 @@
 package com.example.restservice.entity;
 
-import java.util.List;
-
 public class Employee {
 
     private long employeeId;
@@ -10,7 +8,7 @@ public class Employee {
     private String email;
     private String title;
 
-    public Employee(long employeeId) {}
+    public Employee() {}
 
     public Employee(long employeeId, String firstName, String lastName, String email, String title) {
         this.employeeId = employeeId;
