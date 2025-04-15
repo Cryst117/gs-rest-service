@@ -10,15 +10,20 @@ import java.util.List;
 @Service
 public class EmployeeManager {
 
-    public Employees getAllEmployees(){
+    private final List<Employee> employeeList = new ArrayList<>();
 
-        List<Employee> list = new ArrayList<>();
+    public EmployeeManager() {
 
-        list.add(new Employee(1, "John", "Doe", "john.doe@example.com", "Software Engineer"));
-        list.add(new Employee(2, "Jane", "Smith", "jane.smith@example.com", "Product Manager"));
-        list.add(new Employee(3, "Mike", "Brown", "mike.brown@example.com", "Designer"));
+        employeeList.add(new Employee(1, "John", "Doe", "john.doe@example.com", "Software Engineer"));
+        employeeList.add(new Employee(2, "Jane", "Smith", "jane.smith@example.com", "Product Manager"));
+        employeeList.add(new Employee(3, "Mike", "Brown", "mike.brown@example.com", "Designer"));
+    }
 
-        return new Employees(list);
+    public Employees getAllEmployees() {
+        return new Employees(employeeList);
+    }
 
+    public void addEmployee(Employee newEmployee) {
+        employeeList.add(newEmployee);
     }
 }

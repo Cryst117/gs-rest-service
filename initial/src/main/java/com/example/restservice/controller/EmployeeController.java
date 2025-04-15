@@ -1,12 +1,14 @@
 package com.example.restservice.controller;
 
 
+import com.example.restservice.entity.Employee;
 import com.example.restservice.entity.Employees;
 import com.example.restservice.service.EmployeeManager;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
+@RequestMapping("/employees")
 public class EmployeeController {
 
     private final EmployeeManager employeeManager;
@@ -15,9 +17,14 @@ public class EmployeeController {
         this.employeeManager = employeeManager;
     }
 
-    @GetMapping("/employees")
-    public Employees getAllEmployees(){
+    @GetMapping("")
+    public Employees getAllEmployees() {
         return employeeManager.getAllEmployees();
+    }
+
+    @PostMapping("")
+    public void addEmployee(@RequestBody Employee newEmployee) {
+        employeeManager.addEmployee(newEmployee);
     }
 
 }
